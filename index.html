@@ -281,18 +281,26 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: var(--cf-green);
+            background: linear-gradient(135deg, #00c853 0%, #00a844 100%);
             color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
+            padding: 1.25rem 2.5rem;
+            border-radius: 60px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1rem;
-            min-height: 56px;
-            min-width: 200px;
-            transition: all 0.2s;
-            box-shadow: 0 4px 15px rgba(0, 200, 83, 0.3);
+            font-size: 1.1rem;
+            min-height: 64px;
+            min-width: 280px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 200, 83, 0.4), 0 4px 10px rgba(0, 0, 0, 0.2);
             animation: pulse 2s infinite;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.5px;
+        }
+
+        .cf-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 200, 83, 0.5), 0 6px 15px rgba(0, 0, 0, 0.25);
         }
 
         @keyframes pulse {
@@ -913,10 +921,7 @@
                     <div class="cf-stat-number">51日</div>
                     <div class="cf-stat-label">残り日数</div>
                 </div>
-                <div class="cf-stat">
-                    <div class="cf-stat-number">All-In</div>
-                    <div class="cf-stat-label">方式</div>
-                </div>
+
             </div>
 
             <div class="cf-features">
@@ -1041,7 +1046,7 @@
             <div class="courses-grid">
                 <!-- 課長コース -->
                 <div class="course-card">
-                    <img src="images/course_beginner.jpg" alt="課長コース" class="course-image">
+                    <img src="images/course_kacho.jpg" alt="課長コース" class="course-image">
                     <div class="course-content">
                         <span class="course-level">初級 ★☆☆</span>
                         <h3 class="course-title">課長コース</h3>
@@ -1055,7 +1060,7 @@
 
                 <!-- 部長コース -->
                 <div class="course-card">
-                    <img src="images/course_intermediate.jpg" alt="部長コース" class="course-image">
+                    <img src="images/course_bucho.jpg" alt="部長コース" class="course-image">
                     <div class="course-content">
                         <span class="course-level">中級 ★★☆</span>
                         <h3 class="course-title">部長コース</h3>
@@ -1069,7 +1074,7 @@
 
                 <!-- 市長コース -->
                 <div class="course-card">
-                    <img src="images/course_advanced.jpg" alt="市長コース" class="course-image">
+                    <img src="images/course_shicho.jpg" alt="市長コース" class="course-image">
                     <div class="course-content">
                         <span class="course-level">上級 ★★★</span>
                         <h3 class="course-title">市長コース</h3>
