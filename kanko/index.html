@@ -50,6 +50,37 @@
             box-shadow: var(--shadow);
         }
 
+        /* Back to TOP button */
+        .back-to-top {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1000;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary-dark);
+            padding: 0.6rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-to-top:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-top-icon {
+            font-size: 1.1rem;
+        }
+
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -819,6 +850,12 @@
 </head>
 
 <body>
+    <!-- Back to TOP button -->
+    <a href="../index.html" class="back-to-top">
+        <span class="back-to-top-icon">←</span>
+        <span>TOPに戻る</span>
+    </a>
+
     <header>
         <div class="header-content">
             <nav class="nav-links">
