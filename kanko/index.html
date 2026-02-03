@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宗像検定「観光編」</title>
+    <meta name="description" content="宗像市の魅力をクイズで楽しく学ぼう！基本情報から観光スポットまで、宗像のことがもっと好きになる10問のクイズ。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #60ad5e;
+            --primary-dark: #005005;
+            --secondary: #1565c0;
+            --secondary-light: #5e92f3;
+            --accent: #ff8f00;
+            --bg-cream: #faf8f5;
+            --bg-green-light: #e8f5e9;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        /* Start Screen */
+        .start-screen {
+            min-height: calc(100vh - 60px);
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary) 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .start-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="3" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="2" fill="white" opacity="0.1"/><circle cx="60" cy="10" r="2" fill="white" opacity="0.1"/><circle cx="90" cy="90" r="3" fill="white" opacity="0.1"/></svg>');
+            pointer-events: none;
+        }
+
+        .start-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 1rem;
+        }
+
+        .welcome-message {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, rgba(255, 143, 0, 0.9) 0%, rgba(255, 87, 34, 0.9) 100%);
+            padding: clamp(1rem, 3vw, 2rem) clamp(1.5rem, 4vw, 3rem);
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(255, 143, 0, 0.4);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: welcomePulse 2s ease-in-out infinite;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes welcomePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 8px 32px rgba(255, 143, 0, 0.4);
+            }
+
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 12px 40px rgba(255, 143, 0, 0.6);
+            }
+        }
+
+        .start-title {
+            font-size: clamp(3rem, 10vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.1em;
+        }
+
+        .start-subtitle {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .start-description {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .start-stats {
+            display: flex;
+            justify-content: center;
+            gap: clamp(2rem, 6vw, 4rem);
+            margin-bottom: 3rem;
+        }
+
+        .start-stat {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem 2rem;
+            border-radius: 16px;
+        }
+
+        .start-stat-number {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+        }
+
+        .start-stat-label {
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            opacity: 0.9;
+        }
+
+        .start-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff9800 50%, #ff6b35 100%);
+            background-size: 200% 200%;
+            color: white;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 700;
+            padding: clamp(1rem, 3vw, 1.75rem) clamp(2rem, 6vw, 4rem);
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.5);
+            transition: all 0.3s;
+            animation: pulse 2s infinite, gradientFlow 3s ease infinite;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .start-button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 15px 50px rgba(255, 107, 53, 0.6);
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 10px 40px rgba(255, 107, 53, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 15px 50px rgba(255, 107, 53, 0.7);
+            }
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .start-note {
+            margin-top: 2.5rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            opacity: 0.85;
+        }
+
+        /* Quiz Section - Hidden by default */
+        .quiz-wrapper {
+            display: none;
+        }
+
+        .quiz-wrapper.active {
+            display: block;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 12px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        /* Quiz Card */
+        .quiz-card {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+
+        .quiz-card.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .quiz-category {
+            display: inline-block;
+            background: var(--bg-green-light);
+            color: var(--primary-dark);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-category.spot {
+            background: #e3f2fd;
+            color: var(--secondary);
+        }
+
+        .quiz-number {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-question {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .option {
+            background: var(--bg-cream);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .option:hover {
+            border-color: var(--primary);
+            background: var(--bg-green-light);
+        }
+
+        .option.selected {
+            border-color: var(--primary);
+            background: var(--bg-green-light);
+        }
+
+        .option.correct {
+            border-color: var(--primary);
+            background: #c8e6c9;
+        }
+
+        .option.incorrect {
+            border-color: #e53935;
+            background: #ffcdd2;
+        }
+
+        .option.disabled {
+            pointer-events: none;
+        }
+
+        .option-marker {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .option.selected .option-marker {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .option.correct .option-marker {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .option.incorrect .option-marker {
+            background: #e53935;
+            border-color: #e53935;
+            color: white;
+        }
+
+        /* Result Notification */
+        .result-notification {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 700;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .result-notification.correct {
+            display: block;
+            background: #c8e6c9;
+            color: #1b5e20;
+            border: 2px solid #4caf50;
+        }
+
+        .result-notification.incorrect {
+            display: block;
+            background: #ffcdd2;
+            color: #b71c1c;
+            border: 2px solid #e53935;
+        }
+
+        /* Answer Explanation */
+        .explanation {
+            display: none;
+            margin-top: 1rem;
+            padding: 1.5rem;
+            background: #fffde7;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .explanation.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .explanation-title {
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary) 0%, #0d47a1 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(21, 101, 192, 0.3);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(21, 101, 192, 0.4);
+        }
+
+        .btn-secondary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .quiz-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* Result */
+        .result-card {
+            display: none;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .result-card.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .result-score {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        .result-message {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .result-detail {
+            background: var(--bg-green-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        /* Spots Section */
+        .spots-section {
+            background: var(--bg-green-light);
+            padding: 3rem 1.5rem;
+        }
+
+        .spots-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .spots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .spot-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .spot-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .spot-image {
+            height: 160px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .spot-content {
+            padding: 1.5rem;
+        }
+
+        .spot-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .spot-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .spot-link {
+            color: var(--secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--primary-light);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive - Large screens (projector) */
+        @media (min-width: 1200px) {
+            .start-screen {
+                padding: 4rem;
+            }
+
+            .welcome-message {
+                font-size: 2.8rem;
+                padding: 2rem 4rem;
+            }
+
+            .start-title {
+                font-size: 6rem;
+            }
+
+            .start-subtitle {
+                font-size: 3rem;
+            }
+
+            .start-description {
+                font-size: 1.6rem;
+            }
+
+            .start-button {
+                font-size: 2.5rem;
+                padding: 2rem 5rem;
+            }
+        }
+
+        /* Responsive - Medium screens */
+        @media (max-width: 768px) {
+            .start-stats {
+                gap: 1.5rem;
+            }
+
+            .start-stat {
+                padding: 0.75rem 1.25rem;
+            }
+
+            .quiz-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Responsive - Small screens (mobile) */
+        @media (max-width: 480px) {
+            .nav-links {
+                gap: 0.5rem;
+                font-size: 0.75rem;
+            }
+
+            .start-screen {
+                padding: 1.5rem 1rem;
+            }
+
+            .welcome-message {
+                padding: 0.75rem 1rem;
+                border-radius: 12px;
+                font-size: 1.1rem;
+            }
+
+            .start-stats {
+                gap: 1rem;
+            }
+
+            .start-stat {
+                padding: 0.5rem 1rem;
+            }
+
+            .quiz-card {
+                padding: 1rem;
+            }
+
+            .quiz-nav {
+                flex-direction: column;
+            }
+
+            .option {
+                padding: 0.75rem 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <nav class="nav-links">
+                <a href="https://genkai.com/munatabilab/" target="_blank">むなたびラボ</a>
+                <a href="../index.html">宗像検定</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Start Screen -->
+    <section class="start-screen" id="startScreen">
+        <div class="start-content">
+            <p class="welcome-message">東京宗像会にご参加の皆さま、宗像検定を宜しくお願いします！</p>
+            <h1 class="start-title">宗像検定</h1>
+            <p class="start-subtitle">〜 観光編 〜</p>
+            <p class="start-description">
+                世界遺産のまち・宗像の魅力をクイズで楽しく学びましょう。<br>
+                基本情報から人気スポットまで、全10問にチャレンジ！
+            </p>
+            <div class="start-stats">
+                <div class="start-stat">
+                    <div class="start-stat-number">10</div>
+                    <div class="start-stat-label">問題</div>
+                </div>
+                <div class="start-stat">
+                    <div class="start-stat-number">3</div>
+                    <div class="start-stat-label">分</div>
+                </div>
+            </div>
+            <button class="start-button" onclick="startQuiz()">
+                ▶ スタート
+            </button>
+            <p class="start-note">✨ 所要時間：約3分</p>
+        </div>
+    </section>
+
+    <!-- Quiz Wrapper (Hidden initially) -->
+    <div class="quiz-wrapper" id="quizWrapper">
+        <section class="quiz-section">
+            <div class="section-title">
+                <h2>宗像検定「観光編」</h2>
+                <p>選択肢を選んで「決定」ボタンを押してください</p>
+            </div>
+
+            <div class="progress-text">問題 <span id="currentQ">1</span> / 10</div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <!-- Quiz Cards -->
+            <div id="quizContainer">
+                <!-- Questions will be inserted by JavaScript -->
+            </div>
+
+            <!-- Result Card -->
+            <div class="result-card" id="resultCard">
+                <h2>🎉 クイズ完了！</h2>
+                <div class="result-score"><span id="score">0</span>/10</div>
+                <p class="result-message" id="resultMessage"></p>
+                <div class="result-detail">
+                    <p>正解数によってあなたの宗像レベルがわかります！</p>
+                </div>
+                <button class="btn btn-primary" onclick="restartQuiz()">もう一度挑戦する</button>
+            </div>
+        </section>
+
+        <!-- 観光施設紹介セクション -->
+        <section class="spots-section">
+            <div class="spots-container">
+                <div class="section-title">
+                    <h2>🗺️ 宗像の観光施設</h2>
+                    <p>宗像市内のおすすめ観光スポットをご紹介します</p>
+                </div>
+                <div class="spots-grid">
+                    <a href="https://www.munakata-taisha.or.jp/" target="_blank" class="spot-card">
+                        <div class="spot-image">⛩️</div>
+                        <div class="spot-content">
+                            <h3>宗像大社</h3>
+                            <p>世界遺産「神宿る島」宗像・沖ノ島と関連遺産群の中心。交通安全の神様として有名。</p>
+                            <span class="spot-link">公式サイトへ →</span>
+                        </div>
+                    </a>
+                    <a href="https://www.michi-no-eki-munakata.co.jp/" target="_blank" class="spot-card">
+                        <div class="spot-image">🐟</div>
+                        <div class="spot-content">
+                            <h3>道の駅むなかた</h3>
+                            <p>玄界灘の新鮮な海の幸が揃う人気スポット。お土産やグルメも充実。</p>
+                            <span class="spot-link">公式サイトへ →</span>
+                        </div>
+                    </a>
+                    <a href="https://genkai.com/munatabilab/" target="_blank" class="spot-card">
+                        <div class="spot-image">🚲</div>
+                        <div class="spot-content">
+                            <h3>むなたびラボ</h3>
+                            <p>観光ステーション。レンタサイクルやツアー情報、観光案内を提供。</p>
+                            <span class="spot-link">公式サイトへ →</span>
+                        </div>
+                    </a>
+                    <a href="https://www.city.munakata.lg.jp/soshiki/31/ooshima.html" target="_blank" class="spot-card">
+                        <div class="spot-image">🏝️</div>
+                        <div class="spot-content">
+                            <h3>大島</h3>
+                            <p>神湊港からフェリーで約25分。中津宮や沖津宮遥拝所など世界遺産スポット。</p>
+                            <span class="spot-link">詳細を見る →</span>
+                        </div>
+                    </a>
+                    <a href="https://chinkokuji.or.jp/" target="_blank" class="spot-card">
+                        <div class="spot-image">🌸</div>
+                        <div class="spot-content">
+                            <h3>鎮国寺</h3>
+                            <p>弘法大師が開いた真言宗のお寺。桜や紅葉の名所としても人気。</p>
+                            <span class="spot-link">公式サイトへ →</span>
+                        </div>
+                    </a>
+                    <a href="https://www.city.munakata.lg.jp/soshiki/31/shinpou.html" target="_blank" class="spot-card">
+                        <div class="spot-image">🏛️</div>
+                        <div class="spot-content">
+                            <h3>神宝館</h3>
+                            <p>沖ノ島から出土した約8万点の国宝を収蔵・展示。「海の正倉院」。</p>
+                            <span class="spot-link">詳細を見る →</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://genkai.com/munatabilab/" target="_blank">むなたびラボ</a>
+            <a href="../index.html">宗像検定</a>
+        </div>
+        <p class="copyright">© 2026 宗像検定プロジェクト</p>
+    </footer>
+
+    <script>
+        const quizData = [
+            // 宗像市の基本紹介（5問）
+            {
+                category: "基本情報",
+                question: "宗像市の人口は約何万人でしょうか？",
+                options: ["約5万人", "約7万人", "約10万人", "約15万人"],
+                answer: 2,
+                explanation: "宗像市の人口は約10万人（2024年時点）です。福岡市と北九州市の中間に位置し、ベッドタウンとしても人気があります。"
+            },
+            {
+                category: "基本情報",
+                question: "2017年に世界遺産に登録された「神宿る島」の構成資産に含まれる神社はどれ？",
+                options: ["太宰府天満宮", "宗像大社", "筥崎宮", "香椎宮"],
+                answer: 1,
+                explanation: "「神宿る島」宗像・沖ノ島と関連遺産群として、宗像大社（辺津宮・中津宮・沖津宮）と関連する古墳群が世界文化遺産に登録されています。"
+            },
+            {
+                category: "基本情報",
+                question: "宗像市は福岡県のどの地域に位置していますか？",
+                options: ["福岡地域", "北九州地域", "筑後地域", "筑豊地域"],
+                answer: 0,
+                explanation: "宗像市は福岡地域に属しています。福岡市から北へ約30km、北九州市から南西へ約30kmの位置にあります。"
+            },
+            {
+                category: "基本情報",
+                question: "宗像市の「市の花」は何でしょうか？",
+                options: ["桜", "菜の花", "カノコユリ", "つつじ"],
+                answer: 2,
+                explanation: "宗像市の花は「カノコユリ」です。7月〜8月に白やピンクの美しい花を咲かせ、大島などで自生しています。"
+            },
+            {
+                category: "基本情報",
+                question: "宗像大社に祀られている「宗像三女神」は何の神様として有名？",
+                options: ["学問の神様", "交通安全の神様", "縁結びの神様", "商売繁盛の神様"],
+                answer: 1,
+                explanation: "宗像三女神は海上・交通安全の神様として古くから信仰されています。全国の交通安全祈願で最も有名な神社の一つです。"
+            },
+            // 観光スポット紹介（5問）
+            {
+                category: "観光スポット",
+                categoryClass: "spot",
+                question: "宗像大社の辺津宮にある「神宝館」には何が展示されている？",
+                options: ["仏像コレクション", "沖ノ島の国宝・出土品", "古代の武器", "江戸時代の絵画"],
+                answer: 1,
+                explanation: "神宝館には沖ノ島から出土した約8万点の国宝が収蔵・展示されています。「海の正倉院」と呼ばれる貴重な遺物を見ることができます。"
+            },
+            {
+                category: "観光スポット",
+                categoryClass: "spot",
+                question: "宗像市の離島「大島」へのフェリーは神湊港から約何分？",
+                options: ["約15分", "約25分", "約45分", "約60分"],
+                answer: 1,
+                explanation: "大島へは神湊港からフェリーで約25分、旅客船なら約15分で到着します。島内では中津宮や沖津宮遥拝所を参拝できます。"
+            },
+            {
+                category: "観光スポット",
+                categoryClass: "spot",
+                question: "「道の駅むなかた」で特に人気の特産品はどれ？",
+                options: ["明太子", "新鮮な魚介類", "博多ラーメン", "八女茶"],
+                answer: 1,
+                explanation: "道の駅むなかたは玄界灘で獲れた新鮮な魚介類が大人気！特に「鐘崎天然とらふぐ」や「あじ」「さば」などが有名です。"
+            },
+            {
+                category: "観光スポット",
+                categoryClass: "spot",
+                question: "宗像市の名山「許斐山（このみやま）」の標高は約何メートル？",
+                options: ["約100m", "約270m", "約500m", "約800m"],
+                answer: 1,
+                explanation: "許斐山の標高は約271メートル。山頂からは玄界灘や宗像市街を一望でき、初心者でも楽しめるハイキングコースとして人気です。"
+            },
+            {
+                category: "観光スポット",
+                categoryClass: "spot",
+                question: "宗像市にある「鎮国寺」は何宗のお寺でしょうか？",
+                options: ["浄土宗", "真言宗", "禅宗", "日蓮宗"],
+                answer: 1,
+                explanation: "鎮国寺は弘法大師（空海）が開いた真言宗のお寺です。桜や紅葉の名所としても知られ、宗像大社と合わせて参拝する方も多いです。"
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedOption = -1;
+        let answered = false;
+
+        function startQuiz() {
+            document.getElementById('startScreen').style.display = 'none';
+            document.getElementById('quizWrapper').classList.add('active');
+            window.scrollTo(0, 0);
+            initQuiz();
+        }
+
+        function initQuiz() {
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = '';
+
+            quizData.forEach((q, index) => {
+                const card = document.createElement('div');
+                card.className = `quiz-card ${index === 0 ? 'active' : ''}`;
+                card.id = `question${index}`;
+
+                const categoryClass = q.categoryClass || '';
+                card.innerHTML = `
+                    <span class="quiz-category ${categoryClass}">${q.category}</span>
+                    <div class="quiz-number">Q${index + 1}</div>
+                    <p class="quiz-question">${q.question}</p>
+                    <div class="options">
+                        ${q.options.map((opt, i) => `
+                            <div class="option" data-index="${i}" onclick="selectOption(${index}, ${i})">
+                                <span class="option-marker">${String.fromCharCode(65 + i)}</span>
+                                <span>${opt}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="result-notification" id="notification${index}"></div>
+                    <div class="explanation" id="explanation${index}">
+                        <div class="explanation-title">💡 解説</div>
+                        <p>${q.explanation}</p>
+                    </div>
+                    <div class="quiz-nav">
+                        <button class="btn btn-secondary" id="confirmBtn${index}" onclick="confirmAnswer(${index})" disabled>
+                            決定
+                        </button>
+                        <button class="btn btn-primary" id="nextBtn${index}" onclick="nextQuestion()" style="display: none;">
+                            ${index === quizData.length - 1 ? '結果を見る' : '次の問題へ'} →
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            updateProgress();
+        }
+
+        function selectOption(questionIndex, optionIndex) {
+            if (answered) return;
+
+            selectedOption = optionIndex;
+
+            // Clear previous selection
+            const options = document.querySelectorAll(`#question${questionIndex} .option`);
+            options.forEach(opt => opt.classList.remove('selected'));
+
+            // Mark new selection
+            options[optionIndex].classList.add('selected');
+
+            // Enable confirm button
+            document.getElementById(`confirmBtn${questionIndex}`).disabled = false;
+        }
+
+        function confirmAnswer(questionIndex) {
+            if (answered || selectedOption === -1) return;
+            answered = true;
+
+            const question = quizData[questionIndex];
+            const options = document.querySelectorAll(`#question${questionIndex} .option`);
+            const notification = document.getElementById(`notification${questionIndex}`);
+
+            // Disable all options
+            options.forEach((opt, i) => {
+                opt.classList.add('disabled');
+                if (i === question.answer) {
+                    opt.classList.add('correct');
+                } else if (i === selectedOption) {
+                    opt.classList.add('incorrect');
+                }
+            });
+
+            // Show result notification
+            if (selectedOption === question.answer) {
+                score++;
+                notification.textContent = '🎉 正解！';
+                notification.className = 'result-notification correct';
+            } else {
+                notification.textContent = '❌ 不正解...';
+                notification.className = 'result-notification incorrect';
+            }
+
+            // Show explanation
+            document.getElementById(`explanation${questionIndex}`).classList.add('show');
+
+            // Hide confirm button, show next button
+            document.getElementById(`confirmBtn${questionIndex}`).style.display = 'none';
+            document.getElementById(`nextBtn${questionIndex}`).style.display = 'inline-flex';
+        }
+
+        function nextQuestion() {
+            answered = false;
+            selectedOption = -1;
+            currentQuestion++;
+
+            if (currentQuestion >= quizData.length) {
+                showResult();
+                return;
+            }
+
+            document.querySelectorAll('.quiz-card').forEach(card => card.classList.remove('active'));
+            document.getElementById(`question${currentQuestion}`).classList.add('active');
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('currentQ').textContent = currentQuestion + 1;
+        }
+
+        function showResult() {
+            document.querySelectorAll('.quiz-card').forEach(card => card.classList.remove('active'));
+            document.getElementById('resultCard').classList.add('show');
+            document.getElementById('score').textContent = score;
+
+            let message = '';
+            if (score === 10) {
+                message = '🏆 パーフェクト！あなたは宗像マスターです！';
+            } else if (score >= 8) {
+                message = '🎊 素晴らしい！宗像通ですね！';
+            } else if (score >= 6) {
+                message = '👍 いい感じ！もっと宗像を探検してみよう！';
+            } else if (score >= 4) {
+                message = '😊 まずまずです。宗像にはまだまだ魅力がいっぱい！';
+            } else {
+                message = '🌱 これから宗像のことをもっと知っていきましょう！';
+            }
+            document.getElementById('resultMessage').textContent = message;
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            selectedOption = -1;
+            answered = false;
+            document.getElementById('resultCard').classList.remove('show');
+            initQuiz();
+        }
+    </script>
+</body>
+
+</html>
