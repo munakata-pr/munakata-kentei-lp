@@ -121,7 +121,15 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
             animation: welcomePulse 2s ease-in-out infinite;
             border: 3px solid rgba(255, 255, 255, 0.3);
-            white-space: pre-line;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .welcome-line {
+            display: block;
+            white-space: nowrap;
         }
 
         @keyframes welcomePulse {
@@ -757,7 +765,10 @@
     <!-- Start Screen -->
     <section class="start-screen" id="startScreen">
         <div class="start-content">
-            <p class="welcome-message">東京宗像会にご参加の皆さま、<br>宗像検定を宜しくお願いします！</p>
+            <p class="welcome-message">
+                <span class="welcome-line">東京宗像会にご参加の皆さま、</span>
+                <span class="welcome-line">宗像検定を宜しくお願いします！</span>
+            </p>
             <h1 class="start-title">宗像検定</h1>
             <p class="start-subtitle">〜 観光編 〜</p>
             <p class="start-description">
