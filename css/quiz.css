@@ -1,0 +1,209 @@
+@charset "UTF-8";
+
+:root {
+    --navy: #1a2332;
+    --deep-navy: #0f1419;
+    --vermilion: #d84315;
+    --vermilion-dark: #bf360c;
+    --gold: #c9a961;
+    --off-white: #f5f3ed;
+    --light-gray: #e8e6e0;
+    --cf-green: #00c853;
+    --cf-green-dark: #00a844;
+    --cf-green-light: #69f0ae;
+    --tap-size: 48px;
+    --tap-gap: 12px;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--navy);
+    line-height: 1.6;
+    background-color: var(--off-white);
+    margin: 0;
+    padding-bottom: 80px;
+}
+
+/* Header */
+.site-header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--deep-navy) 100%);
+    color: white;
+    padding: 0.75rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 32px;
+    width: auto;
+}
+
+.nav-links {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+    }
+
+    .nav-links a {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+        color: var(--gold);
+    }
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(26, 35, 50, 0.55), rgba(26, 35, 50, 0.65)), url('../images/hero_smartphone.webp');
+    background-size: cover;
+    background-position: center;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: calc(60px + env(safe-area-inset-top)) 1.5rem 3rem;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.hero-content h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.4;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    opacity: 0.95;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Container */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Buttons */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--vermilion);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-md);
+    width: 100%;
+    max-width: 300px;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: var(--vermilion-dark);
+}
+
+/* Difficulty Cards */
+.difficulty-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.difficulty-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--gold);
+}
+
+.difficulty-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    background: var(--light-gray);
+    border: 3px solid white;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Utility */
+.text-center {
+    text-align: center;
+}
+
+.mb-1 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+    margin-bottom: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .difficulty-card {
+        padding: 1.5rem;
+    }
+}
