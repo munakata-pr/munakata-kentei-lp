@@ -106,17 +106,35 @@
                 <img src="../images/course_kacho.webp" alt="課長コース" class="difficulty-icon"
                     style="width:120px; height:120px;" onerror="this.style.backgroundColor='#ccc'">
                 <h3 style="font-size:1.8rem; margin-bottom:1rem;">課長コース</h3>
-                <p style="margin-bottom:1.5rem;">宗像の歴史・自然・文化などの基礎知識を問う全11問。<br>合格して「課長」の称号をゲットしよう！</p>
 
-                <ul
-                    style="list-style:none; padding:0; margin-bottom:2rem; background:var(--off-white); padding:1rem; border-radius:8px; text-align:left;">
-                    <li class="mb-1">✅ 問題数: 選択式 11問</li>
-                    <li class="mb-1">✅ 合格ライン: 60点以上</li>
-                    <li>✅ 制限時間: なし</li>
-                </ul>
+                <p style="margin-bottom:1.5rem; text-align:left; line-height:1.8;">
+                    <strong>「知れば誰かに話したくなる」宗像の魅力。</strong><br>
+                    世界遺産「沖ノ島」の神秘から、地元で愛される絶品グルメまで。<br>
+                    知っているようで知らない宗像のトリビアを、クイズ形式で楽しく学びませんか？
+                </p>
+
+                <div
+                    style="background:var(--off-white); padding:1.5rem; border-radius:12px; margin-bottom:2rem; text-align:left;">
+                    <ul style="list-style:none; padding:0; margin:0;">
+                        <li class="mb-2" style="display:flex; align-items:center; font-weight:bold;">
+                            <span style="font-size:1.2rem; margin-right:0.5rem;">⏱️</span> 所要時間：約3分（サクッと挑戦！）
+                        </li>
+                        <li class="mb-2" style="display:flex; align-items:center; font-weight:bold;">
+                            <span style="font-size:1.2rem; margin-right:0.5rem;">🆓</span> 完全無料・登録不要
+                        </li>
+                        <li class="mb-2" style="display:flex; align-items:center; font-weight:bold;">
+                            <span style="font-size:1.2rem; margin-right:0.5rem;">🏆</span> 合格で「デジタル認定証」発行
+                        </li>
+                        <li style="display:flex; align-items:center; font-weight:bold;">
+                            <span style="font-size:1.2rem; margin-right:0.5rem;">✅</span> 合格ライン：全11問中 60点以上
+                        </li>
+                    </ul>
+                </div>
 
                 <button class="cta-button" onclick="startExam('beginner')"
-                    style="font-size:1.2rem; padding:1.2rem 3rem;">検定スタート</button>
+                    style="font-size:1.2rem; padding:1.2rem 3rem; width:100%; max-width:400px; box-shadow:0 4px 12px rgba(216, 67, 21, 0.4);">
+                    検定をスタートする
+                </button>
             </div>
         </div>
 
@@ -309,13 +327,7 @@
             window.scrollTo(0, 0);
         }
 
-        // URLパラメータの処理 (自動スタート)
-        window.addEventListener('load', function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('course') === 'beginner') {
-                startExam('beginner');
-            }
-        });
+
     </script>
 </body>
 
