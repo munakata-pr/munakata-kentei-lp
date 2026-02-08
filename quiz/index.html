@@ -225,6 +225,12 @@
                     };
                 }).filter(q => q !== null);
 
+                // Shuffle questions (Fisher-Yates)
+                for (let i = allQuestions["beginner"].length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [allQuestions["beginner"][i], allQuestions["beginner"][j]] = [allQuestions["beginner"][j], allQuestions["beginner"][i]];
+                }
+
                 console.log("Quiz loaded:", allQuestions["beginner"].length, "questions");
 
                 // Update meta text dynamically
