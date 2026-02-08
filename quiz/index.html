@@ -126,7 +126,8 @@
                             <span style="font-size:1.2rem; margin-right:0.5rem;">🏆</span> 合格で「デジタル認定証」発行
                         </li>
                         <li style="display:flex; align-items:center; font-weight:bold;">
-                            <span style="font-size:1.2rem; margin-right:0.5rem;">✅</span> 合格ライン：全11問中 60点以上
+                            <span style="font-size:1.2rem; margin-right:0.5rem;">✅</span> 合格ライン：<span
+                                id="quiz-meta-text">全20問中 80点以上</span>
                         </li>
                     </ul>
                 </div>
@@ -225,6 +226,14 @@
                 }).filter(q => q !== null);
 
                 console.log("Quiz loaded:", allQuestions["beginner"].length, "questions");
+
+                // Update meta text dynamically
+                const qCount = allQuestions["beginner"].length;
+                const passScore = 80;
+                const metaText = document.getElementById('quiz-meta-text');
+                if (metaText) {
+                    metaText.textContent = `全${qCount}問中 ${passScore}点以上`;
+                }
 
             } catch (e) {
                 console.error("Quiz load failed:", e);
@@ -354,17 +363,17 @@
 
             let message = '';
             let rank = '';
-            const isPassed = score >= 60;
+            const isPassed = score >= 80;
 
-            if (score >= 80) {
+            if (score >= 90) {
                 message = '<span class="result-icon success">★</span> 素晴らしい成績です！';
-                rank = '評価: 優秀（80点以上）';
-            } else if (score >= 60) {
-                message = '<span class="result-icon success">✓</span> 良好な成績です！';
-                rank = '評価: 合格（60点以上）';
+                rank = '評価: 優秀（90点以上）';
+            } else if (score >= 80) {
+                message = '<span class="result-icon success">✓</span> 合格おめでとうございます！';
+                rank = '評価: 合格（80点以上）';
             } else {
-                message = '<span class="result-icon">!</span> もう一度チャレンジしてみましょう！';
-                rank = '評価: 再受検推奨（60点未満）';
+                message = '<span class="result-icon">!</span> あと少し！再挑戦しましょう';
+                rank = '評価: 再受検推奨（80点未満）';
             }
 
             document.getElementById('result-message').innerHTML = message;
