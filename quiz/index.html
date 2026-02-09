@@ -4,74 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>宗像検定 課長コース | 宗像の魅力を再発見</title>
-    <meta name="description" content="宗像検定「課長コース」に挑戦！基本情報を楽しく学んで、宗像の魅力を再発見しよう。">
+    <title>宗像検定 コース選択 | 宗像の魅力を再発見</title>
+    <meta name="description" content="宗像検定のコース選択ページです。あなたの知識レベルに合わせてコースを選んで挑戦してください。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../css/quiz.css">
-    <style>
-        /* Quiz Specific Overrides */
-        .result-icon {
-            display: inline-flex;
-            width: 24px;
-            height: 24px;
-            background: var(--navy);
-            color: white;
-            border-radius: 50%;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            margin-right: 8px;
-        }
-
-        .result-icon.success {
-            background: var(--vermilion);
-        }
-
-        .review-icon {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            line-height: 20px;
-            text-align: center;
-            border-radius: 50%;
-            color: white;
-            font-weight: bold;
-            font-size: 12px;
-            margin-right: 8px;
-        }
-
-        .review-icon.correct {
-            background: var(--navy);
-        }
-
-        .review-icon.incorrect {
-            background: #e74c3c;
-        }
-
-        .exam-section {
-            display: none;
-        }
-
-        .exam-section.active {
-            display: block;
-        }
-
-        #course-intro.hidden {
-            display: none;
-        }
-
-        #result-section {
-            display: none;
-        }
-
-        #result-section.active {
-            display: block;
-        }
-    </style>
 </head>
 
 <body>
@@ -93,335 +33,46 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>宗像検定<br>課長コース</h1>
-            <p>まずはここからスタート！<br>宗像の基本情報を楽しく学びましょう。</p>
+            <h1>宗像検定<br>コース選択</h1>
+            <p>挑戦したいコースを選んでください。</p>
         </div>
     </section>
 
     <div class="container">
-        <!-- コース紹介（課長コース専用） -->
-        <div id="course-intro">
-            <div class="difficulty-card beginner"
-                style="cursor:default; transform:none; max-width:600px; margin:0 auto;">
+        <div
+            style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:2rem; margin-top:2rem;">
+
+            <!-- 課長コース -->
+            <div class="difficulty-card beginner" style="cursor:pointer; transition:transform 0.3s;"
+                onclick="location.href='./beginner/'">
                 <img src="../images/course_kacho.webp" alt="課長コース" class="difficulty-icon"
-                    style="width:320px; height:320px;" onerror="this.style.backgroundColor='#ccc'">
-                <h3 style="font-size:1.8rem; margin-bottom:1rem;">課長コース</h3>
+                    style="width:200px; height:200px; object-fit:cover;" onerror="this.style.backgroundColor='#ccc'">
+                <h3 style="font-size:1.5rem; margin-bottom:0.5rem;">課長コース</h3>
+                <p style="color:var(--text-light);">初級者向け。宗像の基本を知るならまずはここから！</p>
+                <div style="margin-top:1.5rem; font-weight:bold; color:var(--vermilion);">挑戦する →</div>
+            </div>
 
-                <p style="margin-bottom:1.5rem; text-align:left; line-height:1.8;">
-                    <strong>「知れば誰かに話したくなる」宗像の魅力。</strong><br>
-                    世界遺産「沖ノ島」の神秘から、地元で愛される絶品グルメまで。<br>
-                    知っているようで知らない宗像のトリビアを、クイズ形式で楽しく学びませんか？
-                </p>
-
+            <!-- 部長コース (Coming Soon) -->
+            <div class="difficulty-card" style="cursor:default; opacity:0.7; transform:none; background:#f9f9f9;">
                 <div
-                    style="background:var(--off-white); padding:1.5rem; border-radius:12px; margin-bottom:2rem; text-align:left;">
-                    <ul style="list-style:none; padding:0; margin:0;">
-                        <li class="mb-2" style="display:flex; align-items:center; font-weight:bold;">
-                            <span style="font-size:1.2rem; margin-right:0.5rem;">⏱️</span> 所要時間：約3分（サクッと挑戦！）
-                        </li>
-                        <li class="mb-2" style="display:flex; align-items:center; font-weight:bold;">
-                            <span style="font-size:1.2rem; margin-right:0.5rem;">🆓</span> 完全無料・登録不要
-                        </li>
-                        <li class="mb-2" style="display:flex; align-items:center; font-weight:bold;">
-                            <span style="font-size:1.2rem; margin-right:0.5rem;">🏆</span> 合格で「デジタル認定証」発行
-                        </li>
-                        <li style="display:flex; align-items:center; font-weight:bold;">
-                            <span style="font-size:1.2rem; margin-right:0.5rem;">✅</span> 合格ライン：<span
-                                id="quiz-meta-text">全20問中 80点以上</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <button class="cta-button" onclick="startExam('beginner')"
-                    style="font-size:1.2rem; padding:1.2rem 3rem; width:100%; max-width:400px; box-shadow:0 4px 12px rgba(216, 67, 21, 0.4);">
-                    検定をスタートする
-                </button>
+                    style="width:200px; height:200px; background:#ddd; border-radius:50%; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; color:#888; font-weight:bold;">
+                    Coming Soon</div>
+                <h3 style="font-size:1.5rem; margin-bottom:0.5rem; color:#888;">部長コース</h3>
+                <p style="color:#aaa;">中級者向け。準備中です。</p>
             </div>
+
+            <!-- 市長コース (Coming Soon) -->
+            <div class="difficulty-card" style="cursor:default; opacity:0.7; transform:none; background:#f9f9f9;">
+                <div
+                    style="width:200px; height:200px; background:#ddd; border-radius:50%; margin:0 auto 1.5rem; display:flex; align-items:center; justify-content:center; color:#888; font-weight:bold;">
+                    Coming Soon</div>
+                <h3 style="font-size:1.5rem; margin-bottom:0.5rem; color:#888;">市長コース</h3>
+                <p style="color:#aaa;">上級者向け。準備中です。</p>
+            </div>
+
         </div>
-
-        <!-- 課長コース試験セクション -->
-        <div id="beginner-exam" class="exam-section">
-            <h2 class="section-title">課長コース</h2>
-            <div id="beginner-questions"></div>
-            <div class="text-center mt-4">
-                <button class="cta-button" onclick="submitAnswers('beginner')">採点する</button>
-            </div>
-        </div>
-
-        <!-- 結果表示 -->
-        <div id="result-section">
-            <div class="difficulty-card" style="cursor:default; transform:none;">
-                <h2 style="font-family:'Noto Serif JP'; margin-bottom:1rem;">試験結果</h2>
-                <div id="result-message" style="font-size:1.2rem; font-weight:bold; margin-bottom:1rem;"></div>
-                <div id="result-score" style="font-size:3rem; color:var(--vermilion); font-weight:bold;"></div>
-                <div id="result-rank" style="color:var(--text-light);"></div>
-
-                <div id="certificate-container" style="margin-top:2rem; display:none;">
-                    <button class="cta-button" style="background:#4CAF50; margin-bottom:2rem;"
-                        onclick="location.href='../kanko/index.html'">観光編にも挑戦！</button>
-
-                    <div style="border:4px double var(--gold); padding:2rem; border-radius:8px; background:#fffcf5;">
-                        <h3 style="color:var(--gold);">MUNAKATA KENTEI</h3>
-                        <div id="certificate-badge-img" style="width:100px; height:100px; margin:1rem auto;"></div>
-                        <div style="font-size:1.5rem; font-weight:bold; margin:0.5rem 0;">デジタル認定証</div>
-                        <div id="certificate-level-name"></div>
-                        <div style="margin-top:1rem; font-size:0.9rem; color:#888;" id="certificate-date"></div>
-                    </div>
-                </div>
-
-                <div style="margin-top:2rem;">
-                    <button class="cta-button" onclick="retryExam()">もう一度挑戦する</button>
-                </div>
-            </div>
-
-            <div id="answer-review" style="margin-top:3rem;">
-                <h3 style="border-bottom:2px solid var(--light-gray); padding-bottom:0.5rem;">回答確認</h3>
-                <div id="review-content"></div>
-            </div>
-        </div>
-
     </div>
 
-    <!-- JavaScript Logic -->
-    <script>
-        // 問題データ (課長コースのみ使用)
-        const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRtUcELj-4klc6jorQS7Ez0YxuteN-Wv_k7bqGUlzY0RHypqY9xCG8cCFwMC6P9hCFtDO9jXjGKEzrM/pub?output=csv";
-        let allQuestions = { "beginner": [] };
-
-        async function initQuiz() {
-            try {
-                const response = await fetch(SHEET_CSV_URL);
-                if (!response.ok) throw new Error('Network response was not ok');
-                const text = await response.text();
-                const rows = parseCSV(text);
-
-                // Header skip (check if first cell is ID)
-                if (rows.length > 0 && (rows[0][0] === 'ID' || rows[0][0] === 'id')) {
-                    rows.shift();
-                }
-
-                allQuestions["beginner"] = rows.map((row, index) => {
-                    // Expected: ID,Question,Opt1,Opt2,Opt3,CorrectText,Explanation
-                    // Minimum 7 columns
-                    if (row.length < 7) return null;
-
-                    const options = [row[2], row[3], row[4]];
-                    const correctText = row[5];
-                    // Find correct index by matching text
-                    let correctIndex = options.findIndex(opt => opt.trim() === correctText.trim());
-                    if (correctIndex === -1) {
-                        // Fallback check (loose match)
-                        correctIndex = options.findIndex(opt => correctText.includes(opt) || opt.includes(correctText));
-                    }
-                    if (correctIndex === -1) correctIndex = 0; // Ultimate fallback
-
-                    return {
-                        id: row[0] || `q${index + 1}`,
-                        question: row[1],
-                        options: options,
-                        correct: correctIndex,
-                        explanation: row[6],
-                        creator: row[7] ? row[7].trim() : null // H-column for Creator
-                    };
-                }).filter(q => q !== null);
-
-                // Shuffle questions (Fisher-Yates)
-                for (let i = allQuestions["beginner"].length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [allQuestions["beginner"][i], allQuestions["beginner"][j]] = [allQuestions["beginner"][j], allQuestions["beginner"][i]];
-                }
-
-                console.log("Quiz loaded:", allQuestions["beginner"].length, "questions");
-
-                // Update meta text dynamically
-                const qCount = allQuestions["beginner"].length;
-                const passScore = 80;
-                const metaText = document.getElementById('quiz-meta-text');
-                if (metaText) {
-                    metaText.textContent = `全${qCount}問中 ${passScore}点以上`;
-                }
-
-            } catch (e) {
-                console.error("Quiz load failed:", e);
-                // Fallback static data could be placed here if needed
-                alert("クイズデータの読み込みに失敗しました。ページを再読み込みしてください。");
-            }
-        }
-
-        // Robust CSV Parser
-        function parseCSV(text) {
-            const rows = [];
-            let currentRow = [];
-            let currentCell = '';
-            let insideQuote = false;
-
-            for (let i = 0; i < text.length; i++) {
-                const char = text[i];
-                const nextChar = text[i + 1];
-
-                if (char === '"') {
-                    if (insideQuote && nextChar === '"') {
-                        currentCell += '"';
-                        i++;
-                    } else {
-                        insideQuote = !insideQuote;
-                    }
-                } else if (char === ',' && !insideQuote) {
-                    currentRow.push(currentCell.trim()); // Trim whitespace around cells
-                    currentCell = '';
-                } else if ((char === '\r' || char === '\n') && !insideQuote) {
-                    if (char === '\r' && nextChar === '\n') i++;
-                    if (currentRow.length > 0 || currentCell.length > 0) {
-                        currentRow.push(currentCell.trim());
-                        rows.push(currentRow);
-                        currentRow = [];
-                        currentCell = '';
-                    }
-                } else {
-                    currentCell += char;
-                }
-            }
-            if (currentRow.length > 0 || currentCell.length > 0) {
-                currentRow.push(currentCell.trim());
-                rows.push(currentRow);
-            }
-            return rows;
-        }
-
-        window.addEventListener('load', initQuiz);
-
-        let currentScore = 0;
-
-        function startExam(difficulty) {
-            document.getElementById('course-intro').classList.add('hidden');
-            document.getElementById('beginner-exam').classList.add('active');
-            renderQuestions(difficulty);
-            window.scrollTo(0, 0);
-        }
-
-        function renderQuestions(difficulty) {
-            const questions = allQuestions[difficulty];
-            const container = document.getElementById(difficulty + '-questions');
-            container.innerHTML = '';
-
-            questions.forEach((q, idx) => {
-                const questionHTML = `
-                    <div style="background:white; padding:1.5rem; border-radius:12px; margin-bottom:1.5rem; box-shadow:var(--shadow-sm);">
-                        <div style="font-weight:bold; color:var(--text-light); margin-bottom:0.5rem;">第${idx + 1}問</div>
-                        <div style="font-size:1.1rem; margin-bottom:1rem; font-weight:500;">
-                            ${q.question}
-                            ${q.creator ? `<div style="font-size:0.85rem; color:#888; margin-top:0.5rem; text-align:right; font-weight:normal;">作成者：${q.creator}</div>` : ''}
-                        </div>
-                        <div style="display:flex; flex-direction:column; gap:0.75rem;">
-                            ${q.options.map((opt, optIdx) => `
-                                <label style="display:flex; align-items:center; background:var(--off-white); padding:1rem; border-radius:8px; cursor:pointer;">
-                                    <input type="radio" name="${q.id}" value="${optIdx}" style="margin-right:1rem;">
-                                    <span>${opt}</span>
-                                </label>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-                container.innerHTML += questionHTML;
-            });
-        }
-
-        function submitAnswers(difficulty) {
-            const questions = allQuestions[difficulty];
-            let score = 0;
-            let answers = {};
-            let isAllAnswered = true;
-
-            questions.forEach(q => {
-                const selected = document.querySelector(`input[name="${q.id}"]:checked`);
-                if (selected) {
-                    const answer = parseInt(selected.value);
-                    answers[q.id] = {
-                        selected: answer,
-                        correct: q.correct,
-                        isCorrect: answer === q.correct,
-                        question: q.question,
-                        options: q.options,
-                        explanation: q.explanation
-                    };
-                    if (answer === q.correct) {
-                        const pointsPerQuestion = Math.round(100 / questions.length * 100) / 100;
-                        score += pointsPerQuestion;
-                    }
-                } else {
-                    isAllAnswered = false;
-                    answers[q.id] = { selected: -1, correct: q.correct, isCorrect: false, question: q.question, options: q.options, explanation: q.explanation };
-                }
-            });
-
-            if (!isAllAnswered) {
-                if (!confirm('未回答の問題があります。採点してもよろしいですか？')) return;
-            }
-
-            currentScore = Math.round(score);
-            displayResults(currentScore, difficulty, answers);
-        }
-
-        function displayResults(score, difficulty, answers) {
-            document.getElementById(difficulty + '-exam').classList.remove('active');
-            document.getElementById('result-section').classList.add('active');
-            document.getElementById('result-score').textContent = score + '点';
-
-            let message = '';
-            let rank = '';
-            const isPassed = score >= 80;
-
-            if (score >= 90) {
-                message = '<span class="result-icon success">★</span> 素晴らしい成績です！';
-                rank = '評価: 優秀（90点以上）';
-            } else if (score >= 80) {
-                message = '<span class="result-icon success">✓</span> 合格おめでとうございます！';
-                rank = '評価: 合格（80点以上）';
-            } else {
-                message = '<span class="result-icon">!</span> あと少し！再挑戦しましょう';
-                rank = '評価: 再受検推奨（80点未満）';
-            }
-
-            document.getElementById('result-message').innerHTML = message;
-            document.getElementById('result-rank').textContent = rank;
-
-            if (isPassed) {
-                document.getElementById('certificate-container').style.display = 'block';
-                document.getElementById('certificate-level-name').textContent = '課長コース';
-
-                const today = new Date();
-                document.getElementById('certificate-date').textContent = `${today.getFullYear()}年${today.getMonth() + 1}月${today.getDate()}日`;
-
-                document.getElementById('certificate-badge-img').innerHTML = `<img src="../images/course_kacho.webp" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
-            } else {
-                document.getElementById('certificate-container').style.display = 'none';
-            }
-
-            // 解説表示
-            const reviewDiv = document.getElementById('review-content');
-            reviewDiv.innerHTML = '';
-            Object.values(answers).forEach((ans, idx) => {
-                const icon = ans.isCorrect ? '<span class="review-icon correct">✓</span>' : '<span class="review-icon incorrect">✕</span>';
-                const html = `
-                    <div style="background:white; padding:1rem; border-radius:8px; margin-bottom:1rem; border-left:4px solid ${ans.isCorrect ? 'var(--cf-green)' : 'var(--vermilion)'}">
-                        <div style="font-weight:bold; margin-bottom:0.5rem;">${icon} 第${idx + 1}問: ${ans.question}</div>
-                        <div style="font-size:0.9rem; color:#555; margin-bottom:0.5rem;">あなたの回答: ${ans.selected >= 0 ? ans.options[ans.selected] : '未回答'} / 正解: ${ans.options[ans.correct]}</div>
-                        <div style="font-size:0.9rem; background:var(--off-white); padding:0.5rem; border-radius:4px;">解説: ${ans.explanation}</div>
-                    </div>
-                `;
-                reviewDiv.innerHTML += html;
-            });
-            window.scrollTo(0, 0);
-        }
-
-        function retryExam() {
-            document.getElementById('result-section').classList.remove('active');
-            document.getElementById('course-intro').classList.remove('hidden');
-            window.scrollTo(0, 0);
-        }
-
-
-    </script>
 </body>
 
 </html>
